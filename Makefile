@@ -22,6 +22,8 @@ FILES =	main.c \
 		min_sort.c \
 		radix.c \
 		normalize_stack.c \
+		errors.c \
+		parsing.c \
 
 SRCS= $(addprefix src/, $(FILES))
 

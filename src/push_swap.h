@@ -25,6 +25,9 @@ t_list	*find_min(t_list **stack);
 t_list	*find_max(t_list **stack);
 int		len_stack(t_list **stack_a);
 void	normalize_stack(t_list **stack);
+void	check_input(int *argc, char *argv[]);
+void	free_tab(char **tab);
+
 void	pb(t_list **stack_b, t_list **stack_a);
 void	pa(t_list **stack_b, t_list **stack_a);
 void	rra(t_list **stack);
@@ -38,5 +41,5 @@ void	sb(t_list **stack);
 void	ss(t_list **stack_a, t_list **stack_b);
 
 void	min_sort(t_list **stack_a, t_list **stack_b);
-void radix_sort(t_list **stack_a, t_list **stack_b);
+void	radix_sort(t_list **stack_a, t_list **stack_b);
 #endif

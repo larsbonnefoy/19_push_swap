@@ -11,18 +11,22 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 int main(int argc, char *argv[])
 {
 	t_list *stack_a;
 	t_list *stack_b;
-	(void) stack_b;
+	
+	//check_input(&argc, argv);
 	stack_a = init_stack(argv, argc);
 	stack_b = NULL;
-	radix_sort(&stack_a, &stack_b);
-//	min_sort(&stack_a, &stack_b);
-//	insertion_sort(&stack_a);
-//	if (is_sorted(&stack_a) == 1)
-//		ft_printf("OUAIS C'EST OK C SORTED\n");
+	if (argc < 5)	
+		min_sort(&stack_a, &stack_b);
+	else
+		radix_sort(&stack_a, &stack_b);
+
+	ft_lstclear(&stack_a);
 	return (0);
 }
+
+//si argc < 5 autre sort pcq radix trop lent
+//=> devoir passer &argc pour modif la valeur dans le cas ou argv == str;
