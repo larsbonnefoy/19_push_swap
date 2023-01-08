@@ -33,6 +33,7 @@ SRCS =	ft_isalpha.c \
 		ft_memcmp.c \
 		ft_strnstr.c \
 		ft_atoi.c \
+		ft_atol.c \
 		ft_calloc.c\
 		ft_strdup.c \
 		ft_substr.c \
@@ -55,7 +56,6 @@ SRCS =	ft_isalpha.c \
 		ft_lstdelone.c \
 		ft_lstclear.c \
 		ft_lstiter.c \
-		ft_lstmap.c \
 
 OBJ = $(SRCS:.c=.o)
 

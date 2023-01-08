@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+#include <stdio.h>
 void is_valid_number(char *str);
 void check_big_input(int argc, char *argv[]);
 void check_small_input(int *argc, char *argv[]);
@@ -9,12 +9,12 @@ void check_input(int *argc, char *argv[])
 {
 	if (*argc > 2)
 		check_big_input(*argc, argv);
-	if (*argc == 2)
+	else if (*argc == 2)
 		check_small_input(argc, argv);
 	else
 	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
+		printf("1\n");
+		error();
 	}
 }
 
@@ -37,28 +37,28 @@ void check_small_input(int *argc, char *argv[])
 	int		i;
 	int		space_flag;
 	char	**tab;
+	int		argc_cp;
 
-	i = 0;
+	i = -1;
 	space_flag = 0;
-	while (argv[1][i])
+	while (argv[1][++i] != '\0')
 	{
-		if (argv[1][i] == 32)
+		if (argv[1][i] == ' ')
 			space_flag = 1;
 	}
 	if (space_flag == 0)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		error();
+	argv[1] = ft_strjoinf("place_holder ", argv[1]);
+	if (argv[1] == NULL)
+		error();
+	printf("%s\n", argv[1]);
 	tab = ft_split(argv[1], ' ');
 	if (tab == NULL)
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
-	*argc = 1;
+		error();
+	argc_cp = 1;
 	while (tab)
-		*argc = *argc+=1;
+		argc_cp++;
+	*argc = argc_cp;
 	check_big_input(*argc, tab);
 	argv = tab;
 }
@@ -77,17 +77,13 @@ void check_duplicates(int argc, char *argv[])
 		while (j < argc)
 		{
 			if (curr_number == ft_atoi(argv[j]))
-			{
-				ft_printf("Error\n");
-				exit(EXIT_FAILURE);
-			}
+				error();
 			j++;
 		}
 		i++;
 	}
 }
 
-//recoder atoi to atol comme ca on peut check pour max int;
 void is_valid_number(char *str)
 {
 	int a;
@@ -98,18 +94,14 @@ void is_valid_number(char *str)
 	else if ((str[0] == '-' || str[0] == '+' ) && ft_strlen(str) > 1)
 		a++;
 	else
-	{
-		ft_printf("Error\n");
-		exit(EXIT_FAILURE);
-	}
+		error();
 	while (str[a] != '\0')
 	{
 		if (ft_isdigit(str[a]) == 1)
 			a++;
 		else
-		{
-			ft_printf("Error\n");
-			exit(EXIT_FAILURE);
-		}
+			error();
 	}
+	if (ft_atol(str) > INT_MAX || ft_atol(str) < INT_MIN)
+		error();
 }

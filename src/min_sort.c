@@ -17,7 +17,7 @@ void	min_sort(t_list **stack_a, t_list **stack_b)
 	t_list	*tmp;
 	int		rotate_up;
 
-	while (is_sorted (stack_a) == 0)
+	while (is_sorted(stack_a) == 0)
 	{
 		min_addr = find_min(stack_a);
 		rotate_up = rotate_dir(stack_a, min_addr);
@@ -30,6 +30,8 @@ void	min_sort(t_list **stack_a, t_list **stack_b)
 				rra(stack_a);
 			tmp = *stack_a;
 		}
+		if (is_sorted(stack_a) == 1)
+			break;
 		if (tmp == min_addr)
 			pb(stack_a, stack_b);
 	}

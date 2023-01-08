@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
 	t_list *stack_a;
 	t_list *stack_b;
 	
-	//check_input(&argc, argv);
+	check_input(&argc, argv);
 	stack_a = init_stack(argv, argc);
 	stack_b = NULL;
-	if (argc < 5)	
+	if (argc < 7)	
 		min_sort(&stack_a, &stack_b);
 	else
 		radix_sort(&stack_a, &stack_b);

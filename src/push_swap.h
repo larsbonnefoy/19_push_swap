@@ -27,6 +27,7 @@ int		len_stack(t_list **stack_a);
 void	normalize_stack(t_list **stack);
 void	check_input(int *argc, char *argv[]);
 void	free_tab(char **tab);
+void	error(void);
 
 void	pb(t_list **stack_b, t_list **stack_a);
 void	pa(t_list **stack_b, t_list **stack_a);
