@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:36:43 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/02 18:04:58 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/09 16:47:14 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ t_list	*find_min(t_list **stack);
 t_list	*find_max(t_list **stack);
 int		len_stack(t_list **stack_a);
 void	normalize_stack(t_list **stack);
-void	check_input(int *argc, char *argv[]);
+char	**check_input(int *argc, char *argv[]);
+int		check_string_entites(char *str); 
+void	check_duplicates(int argc, char *argv[]);
+void	is_valid_number(char *str);
 void	free_tab(char **tab);
 void	error(void);
 

@@ -6,13 +6,13 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:06:30 by lbonnefo          #+#    #+#             */
-/*   Updated: 2022/10/12 14:16:14 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:00:36 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static long	ft_create_out(int i, int sign, const char *str);
+static long	ft_create_out(int i, const char *str);
 
 long	ft_atol(const char *str)
 {
@@ -33,14 +33,14 @@ long	ft_atol(const char *str)
 	}
 	if (ft_isdigit(str[i]) == 1)
 	{	
-		base = ft_create_out(i, sign, str);
+		base = ft_create_out(i, str);
 		return (base * sign);
 	}		
 	else
 		return (0);
 }
 
-static long	ft_create_out(int i, int sign, const char *str)
+static long	ft_create_out(int i, const char *str)
 {
 	unsigned long int	out;
 
@@ -48,10 +48,8 @@ static long	ft_create_out(int i, int sign, const char *str)
 	while (ft_isdigit(str[i]) == 1)
 	{
 		out = (out * 10) + (str[i] - 48);
-		if (out > LLONG_MAX && sign == -1)
-			return (0);
-		else if (out > LLONG_MAX && sign == 1)
-			return (-1);
+		if (out > INT_MAX)
+			return ((long)INT_MAX + 2);
 		i++;
 	}
 	return ((long)out);

@@ -54,10 +54,26 @@ void free_tab(char **tab)
 	int i;
 
 	i = 0;
-	while (tab)
+	while (tab[i])
 	{
 		free(tab[i]);
 		i++;
 	}
 	free(tab);
 }
+
+int is_rev_sorted(t_list **stack)
+{	
+	t_list	*tmp;
+
+	tmp = *stack;
+	while (tmp->next != NULL)
+	{
+		if (tmp->content < tmp->next->content)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+

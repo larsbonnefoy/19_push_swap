@@ -6,7 +6,7 @@
 #    By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/27 09:29:55 by lbonnefo          #+#    #+#              #
-#    Updated: 2023/01/02 15:32:45 by lbonnefo         ###   ########.fr        #
+#    Updated: 2023/01/09 16:57:53 by lbonnefo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,12 +24,13 @@ FILES =	main.c \
 		normalize_stack.c \
 		errors.c \
 		parsing.c \
+		parsing_utils.c \
 
 SRCS= $(addprefix src/, $(FILES))
 
 OBJ = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror
 
 ###LIB INCLUDES###
 

@@ -37,7 +37,6 @@ int *init_array(int len_stack, t_list **stack_a)
 
 void mod_values(int len_stack, int *stack_arr, t_list **stack_a)
 {
-	//max_value = len stack (-1 vu qu'on commence a 0) 
 	int a;
 	int b;
 	int lower_cnt;

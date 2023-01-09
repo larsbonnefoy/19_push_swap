@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:51:38 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/02 18:04:39 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/09 17:08:30 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,29 @@ void	print_stacks(t_list **stack_a, t_list **stack_b)
 
 t_list	*init_stack(char *nbr[], int argc)
 {
-	t_list	*stack;
+	t_list	*new_node;
+	t_list	*head;
 	int		a;
 
 	a = 1;
 	while (a < argc)
 	{
 		if (a == 1)
-			stack = ft_lstnew(ft_atoi(nbr[a]));
+		{
+			head = ft_lstnew(ft_atoi(nbr[a]));
+			if (head == NULL)
+				error();
+		}
 		else
-			ft_lstadd_back(&stack, ft_lstnew(ft_atoi(nbr[a])));
+		{
+			new_node = ft_lstnew(ft_atoi(nbr[a]));
+			if (new_node == NULL)
+				error();
+			ft_lstadd_back(&head, new_node);
+		}
 		a++;
 	}
-	return (stack);
+	return (head);
 }
 
 int	is_sorted(t_list **stack)
