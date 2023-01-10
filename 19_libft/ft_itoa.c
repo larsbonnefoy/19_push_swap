@@ -6,12 +6,11 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 13:20:56 by lbonnefo          #+#    #+#             */
-/*   Updated: 2022/10/10 10:17:45 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/10 17:19:23 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdio.h>
 
 static int	ft_count(unsigned int nb);
 static int	ft_check_neg(int n);
