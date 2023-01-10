@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   normalize_stack.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 15:58:07 by lbonnefo          #+#    #+#             */
+/*   Updated: 2023/01/10 15:59:31 by lbonnefo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int *init_array(int len_stack, t_list **stack_a);
-static void mod_values(int len_stack, int *stack_arr, t_list **stack_a);
-static void mod_stack(t_list **stack, int *array_mod_values);
+static int	*init_array(int len_stack, t_list **stack_a);
+static void	mod_values(int len_stack, int *stack_arr, t_list **stack_a);
+static void	mod_stack(t_list **stack, int *array_mod_values);
 
-void normalize_stack(t_list **stack)
+void	normalize_stack(t_list **stack)
 {
-	int *arr;
-	int len_stck;
+	int	*arr;
+	int	len_stck;
 
 	len_stck = len_stack(stack);
 	arr = init_array(len_stck, stack);
@@ -15,11 +27,11 @@ void normalize_stack(t_list **stack)
 	free(arr);
 }
 
-int *init_array(int len_stack, t_list **stack_a)
+int	*init_array(int len_stack, t_list **stack_a)
 {
-	int *array;
-	t_list *tmp;
-	int a;
+	int		*array;
+	t_list	*tmp;
+	int		a;
 
 	array = malloc(sizeof(int) * len_stack);
 	if (array == NULL)
@@ -35,12 +47,12 @@ int *init_array(int len_stack, t_list **stack_a)
 	return (array);
 }
 
-void mod_values(int len_stack, int *stack_arr, t_list **stack_a)
+void	mod_values(int len_stack, int *stack_arr, t_list **stack_a)
 {
-	int a;
-	int b;
-	int lower_cnt;
-	int *cp_arr;
+	int	a;
+	int	b;
+	int	lower_cnt;
+	int	*cp_arr;
 
 	a = 0;
 	cp_arr = init_array(len_stack, stack_a);
@@ -50,7 +62,7 @@ void mod_values(int len_stack, int *stack_arr, t_list **stack_a)
 		lower_cnt = 0;
 		while (b < len_stack)
 		{
-			if (cp_arr[a] > cp_arr[b])		
+			if (cp_arr[a] > cp_arr[b])
 				lower_cnt++;
 			b++;
 		}
@@ -61,10 +73,10 @@ void mod_values(int len_stack, int *stack_arr, t_list **stack_a)
 	mod_stack(stack_a, stack_arr);
 }
 
-void mod_stack(t_list **stack, int *array_mod_values)
+void	mod_stack(t_list **stack, int *array_mod_values)
 {
-	t_list *tmp;
-	int a;
+	t_list	*tmp;
+	int		a;
 
 	a = 0;
 	tmp = *stack;

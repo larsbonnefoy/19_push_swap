@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 17:51:38 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/09 17:08:30 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:55:43 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	print_stacks(t_list **stack_a, t_list **stack_b)
 	tmp_a = *stack_a;
 	tmp_b = *stack_b;
 	ft_printf("%p", tmp_a);
-	ft_printf(" %p\n", tmp_b);
+	ft_printf(" 	%p\n", tmp_b);
 	ft_printf("a	b\n-	-\n");
 	while (tmp_a && tmp_b)
 	{
@@ -49,7 +49,7 @@ void	print_stacks(t_list **stack_a, t_list **stack_b)
 		print_stack(tmp_b, 'b');
 }
 
-t_list	*init_stack(char *nbr[], int argc)
+t_list	*init_stack(char *nbr[], int argc, int is_string)
 {
 	t_list	*new_node;
 	t_list	*head;
@@ -62,13 +62,13 @@ t_list	*init_stack(char *nbr[], int argc)
 		{
 			head = ft_lstnew(ft_atoi(nbr[a]));
 			if (head == NULL)
-				error();
+				free_stack(&head, nbr, is_string);
 		}
 		else
 		{
 			new_node = ft_lstnew(ft_atoi(nbr[a]));
 			if (new_node == NULL)
-				error();
+				free_stack(&head, nbr, is_string);
 			ft_lstadd_back(&head, new_node);
 		}
 		a++;
@@ -90,12 +90,12 @@ int	is_sorted(t_list **stack)
 	return (1);
 }
 
-int rotate_dir(t_list **stack, t_list *node)
+int	rotate_dir(t_list **stack, t_list *node)
 {
-	t_list *tmp;
-	int pos;
-	int len;
-	int node_seen;
+	t_list	*tmp;
+	int		pos;
+	int		len;
+	int		node_seen;
 
 	pos = 0;
 	len = 0;
@@ -104,13 +104,13 @@ int rotate_dir(t_list **stack, t_list *node)
 	while (tmp != NULL)
 	{	
 		if (tmp == node)
-			node_seen = 1;	
+			node_seen = 1;
 		if (node_seen == 0)
 			pos++;
 		len++;
 		tmp = tmp->next;
 	}
-	if (pos*2 <= len)
+	if (pos * 2 <= len)
 		return (1);
 	else
 		return (0);

@@ -1,16 +1,27 @@
-#include "push_swap.h"
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 16:03:04 by lbonnefo          #+#    #+#             */
+/*   Updated: 2023/01/10 16:04:49 by lbonnefo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void 	check_digit_input(int argc, char *argv[]);
+#include "push_swap.h"
+
+void	check_digit_input(int argc, char *argv[], int is_str);
 char	**check_str_input(int *argc, char *argv[]);
 
 char	**check_input(int *argc, char *argv[])
 {
-	char **new_argv;
+	char	**new_argv;
 
 	if (*argc > 2)
 	{
-		check_digit_input(*argc, argv);
+		check_digit_input(*argc, argv, 0);
 		return (argv);
 	}
 	else if (*argc == 2)
@@ -23,23 +34,23 @@ char	**check_input(int *argc, char *argv[])
 	return (NULL);
 }
 
-void	check_digit_input(int argc, char *argv[])
+void	check_digit_input(int argc, char *argv[], int is_str)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
-		is_valid_number(argv[i]);
+		is_valid_number(argv[i], is_str, argv);
 		i++;
 	}
-	check_duplicates(argc, argv);
+	check_duplicates(argc, argv, is_str);
 }
 
-char **check_str_input(int *argc, char *argv[])
+char	**check_str_input(int *argc, char *argv[])
 {
 	char	**new_argv;
-	int i;
+	int		i;
 
 	if (check_string_entites(argv[1]) < 2)
 		error();
@@ -53,7 +64,7 @@ char **check_str_input(int *argc, char *argv[])
 	*argc = 0;
 	i = -1;
 	while (new_argv[++i] != NULL)
-		*argc =	*argc+=1;
-	check_digit_input(*argc, new_argv);
+		*argc = *argc + 1;
+	check_digit_input(*argc, new_argv, 1);
 	return (new_argv);
 }

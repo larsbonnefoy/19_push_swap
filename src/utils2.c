@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 16:00:04 by lbonnefo          #+#    #+#             */
+/*   Updated: 2023/01/10 16:01:18 by lbonnefo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_list *find_min(t_list **stack)
+t_list	*find_min(t_list **stack)
 {
-	t_list *tmp;
-	t_list *min_addr;
-	
+	t_list	*tmp;
+	t_list	*min_addr;
+
 	tmp = *stack;
 	min_addr = tmp;
 	while (tmp != NULL)
@@ -16,11 +28,11 @@ t_list *find_min(t_list **stack)
 	return (min_addr);
 }
 
-t_list *find_max(t_list **stack)
+t_list	*find_max(t_list **stack)
 {
-	t_list *tmp;
-	t_list *max_addr;
-	
+	t_list	*tmp;
+	t_list	*max_addr;
+
 	tmp = *stack;
 	max_addr = tmp;
 	while (tmp != NULL)
@@ -32,10 +44,10 @@ t_list *find_max(t_list **stack)
 	return (max_addr);
 }
 
-int len_stack(t_list **stack_a)
+int	len_stack(t_list **stack_a)
 {
 	t_list	*tmp;
-	int 	a;
+	int		a;
 
 	if (*stack_a == NULL)
 		return (0);
@@ -49,9 +61,9 @@ int len_stack(t_list **stack_a)
 	return (a);
 }
 
-void free_tab(char **tab)
+void	free_tab(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i])
@@ -62,7 +74,7 @@ void free_tab(char **tab)
 	free(tab);
 }
 
-int is_rev_sorted(t_list **stack)
+int	is_rev_sorted(t_list **stack)
 {	
 	t_list	*tmp;
 
@@ -75,5 +87,3 @@ int is_rev_sorted(t_list **stack)
 	}
 	return (1);
 }
-
-

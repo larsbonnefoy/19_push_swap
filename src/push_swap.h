@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:36:43 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/09 16:47:14 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:02:46 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,19 @@
 void	print_stack(t_list *tmp, char stack_name);
 void	print_stacks(t_list **stack_a, t_list **stack_b);
 int		is_sorted(t_list **stack);
-t_list	*init_stack(char *nbr[], int argc);
+t_list	*init_stack(char *nbr[], int argc, int is_string);
 int		rotate_dir(t_list **stack, t_list *node);
 t_list	*find_min(t_list **stack);
 t_list	*find_max(t_list **stack);
 int		len_stack(t_list **stack_a);
 void	normalize_stack(t_list **stack);
 char	**check_input(int *argc, char *argv[]);
-int		check_string_entites(char *str); 
-void	check_duplicates(int argc, char *argv[]);
-void	is_valid_number(char *str);
+int		check_string_entites(char *str);
+void	check_duplicates(int argc, char *argv[], int is_str);
+void	is_valid_number(char *str, int is_str, char **argv);
 void	free_tab(char **tab);
+void	free_tab_error(char **argv, int is_str);
+void	free_stack(t_list **stack, char **argv, int is_str);
 void	error(void);
 
 void	pb(t_list **stack_b, t_list **stack_a);

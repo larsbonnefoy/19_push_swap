@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   swap.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/01/10 16:01:37 by lbonnefo          #+#    #+#             */
+/*   Updated: 2023/01/10 16:02:24 by lbonnefo         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static void swap_cont(t_list **stack);
+static void	swap_cont(t_list **stack);
 
-void sa(t_list **stack)
+void	sa(t_list **stack)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
@@ -10,7 +22,7 @@ void sa(t_list **stack)
 	swap_cont(stack);
 }
 
-void sb(t_list **stack)
+void	sb(t_list **stack)
 {
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
@@ -18,7 +30,7 @@ void sb(t_list **stack)
 	swap_cont(stack);
 }
 
-void ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
 	if (*stack_a == NULL || (*stack_a)->next == NULL)
 		return ;
@@ -29,10 +41,10 @@ void ss(t_list **stack_a, t_list **stack_b)
 	swap_cont(stack_b);
 }
 
-void swap_cont(t_list **stack)
+void	swap_cont(t_list **stack)
 {
-	t_list *first_node;
-	t_list *third_node;
+	t_list	*first_node;
+	t_list	*third_node;
 
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
@@ -41,5 +53,4 @@ void swap_cont(t_list **stack)
 	*stack = first_node->next;
 	(*stack)->next = first_node;
 	(*stack)->next->next = third_node;
-
 }

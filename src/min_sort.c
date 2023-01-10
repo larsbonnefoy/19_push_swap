@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 14:44:17 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/09 14:45:51 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/10 16:09:10 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -24,14 +24,14 @@ void	min_sort(t_list **stack_a, t_list **stack_b)
 		tmp = *stack_a;
 		while (tmp != min_addr && tmp)
 		{
-			if (rotate_up == 1) 
+			if (rotate_up == 1)
 				ra(stack_a);
 			else
 				rra(stack_a);
 			tmp = *stack_a;
 		}
 		if (is_sorted(stack_a) == 1)
-			break;
+			break ;
 		if (tmp == min_addr)
 			pb(stack_a, stack_b);
 	}
