@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/27 09:34:26 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/10 15:50:04 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:40:08 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	main(int argc, char *argv[])
 	t_list	*stack_b;
 	int		is_string;
 
+	if (argc == 1)
+		return (0);
 	is_string = 0;
 	if (argc == 2)
 		is_string = 1;

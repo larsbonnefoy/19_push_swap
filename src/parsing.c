@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:03:04 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/10 16:04:49 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:39:34 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char	**check_str_input(int *argc, char *argv[])
 	char	**new_argv;
 	int		i;
 
-	if (check_string_entites(argv[1]) < 2)
+	if (check_string_entites(argv[1]) < 1)
 		error();
 	argv[1] = ft_strjoin("place_holder ", argv[1]);
 	if (argv[1] == NULL)
