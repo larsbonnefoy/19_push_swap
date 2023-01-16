@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:07:38 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/10 16:08:29 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:20:20 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_string_entites(char *str)
 	{
 		while (str[i] == ' ' && str[i] != '\0')
 			i++;
-		if (str[i] != ' ')
+		if (str[i] != ' ' && str[i] != '\0')
 		{
 			digit_flag += 1;
 			i++;
