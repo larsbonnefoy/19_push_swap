@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 15:07:38 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/16 15:20:20 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:40:18 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,6 @@ void	is_valid_number(char *str, int is_str, char **argv)
 		else
 			free_tab_error(argv, is_str);
 	}
-	if (ft_atol(str) > INT_MAX || ft_atol(str) < INT_MIN)
+	if (ft_atol(str) > INT_MAX)
 		free_tab_error(argv, is_str);
 }
