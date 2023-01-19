@@ -6,7 +6,7 @@
 /*   By: lbonnefo <lbonnefo@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 15:06:30 by lbonnefo          #+#    #+#             */
-/*   Updated: 2023/01/19 16:41:24 by lbonnefo         ###   ########.fr       */
+/*   Updated: 2023/01/19 16:48:44 by lbonnefo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ static long	ft_create_out(int i, const char *str, int sign)
 	{
 		out = (out * 10) + (str[i] - 48);
 		if (out > INT_MAX && sign == 1)
-			return ((long)INT_MAX + 1);
+			return ((long)INT_MAX + 2);
 		else if ((out > (long)INT_MIN * -1) && (sign == -1))
-			return ((long)INT_MAX + 1);
+			return ((long)INT_MAX + 2);
 		i++;
 	}
 	return ((long)out);
